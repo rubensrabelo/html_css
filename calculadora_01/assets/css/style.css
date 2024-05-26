@@ -31,4 +31,9 @@ button {
     width: 105px;
     height: 52px;
     font-size: 25px;
+    cursor: pointer;
+}
+
+button:active {
+    background-color: gray;
 }
