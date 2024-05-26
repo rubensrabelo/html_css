@@ -13,6 +13,7 @@ class Calculator {
             // console.log(value);
 
             switch(valor) {
+                case "0":
                 case "1":
                 case "2":
                 case "3":
