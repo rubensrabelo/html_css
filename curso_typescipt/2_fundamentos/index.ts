@@ -1,16 +1,5 @@
-let x: number = 10;
+let num: number = 456;
 
-console.log(x);
+let str_num: string = num.toString();
 
-// console.log(typeof x);
-
-let nome: string = "Rubens";
-
-console.log(nome);
-
-let value: boolean = false;
-
-console.log(value);
-
-let ann: string = "teste";
-
+console.log(`O número digitado foi ${str_num}`);
