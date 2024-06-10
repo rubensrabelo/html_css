@@ -1,0 +1,1 @@
+console.log("Olá, mundo!"); // Escreve "Olá, mundo" no console do browser
