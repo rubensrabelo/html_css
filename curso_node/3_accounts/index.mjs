@@ -29,6 +29,10 @@ function operacao(){
         } else if (action == "Sair") {
             console.log(chalk.bgBlue.black("Obrigado por usar sua conta!"));
             process.exit();
+        } else if (action == "Consultar Saldo") {
+            consultarSaldo();
+        } else if(action == "Sacar"){
+            sacar();
         }
     })
     .catch((err) => console.log(err));
@@ -128,4 +132,64 @@ function pegarConta() {
     });
 
     return JSON.parse(arquivoJSON);
+}
+
+function consultarSaldo() {
+    inquirer.prompt({
+        name: "accountName",
+        message: "Qual o nome da conta?"
+    }).then((answer) => {
+        const accountName = answer["accountName"];
+
+        if(checarAConta(accountName)) {
+            consultarSaldo()
+        }
+
+        const accountData = pegarConta(accountName);
+
+        console.log(chalk.bgBlue.black(
+            `Olá, o saldo da conta e ${accountData.balance}`
+        ));
+
+        operacao();
+    })
+    .catch((err) => console.log(err));
+}
+
+function sacar(){
+    inquirer.prompt({
+        name: "accountName",
+        message: "Qual o nome da conta?"
+    }).then((answer) => {
+        const accountName = answer["accountName"];
+
+        if(checarAConta(accountName)) {
+            sacar()
+        }
+
+        const accountData = pegarConta(accountName);
+
+        inquirer.prompt({
+            name: "amount",
+            message: "Quanto você quer sacar?"
+        }).then((answer) => {
+            const amount = answer["amount"];
+
+            accountData.balance = parseFloat(accountData.balance) - parseFloat(amount);
+            
+            fs.writeFileSync(
+                `accounts/${accountName}.json`,
+                JSON.stringify(accountData),
+                function (err) {
+                    console.log(err);
+                }
+            );
+
+            console.log(chalk.green("Foi realizado o saque da sua conta!"));
+        })
+        .catch(err => console.log(err));
+
+        operacao();
+    })
+    .catch((err) => console.log(err));
 }
