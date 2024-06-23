@@ -9,6 +9,8 @@ const hbr = exphbs.create({
 app.engine("hbs", exphbs.engine({extname: "hbs"}));
 app.set("view engine", "hbs");
 
+app.use(express.static("public"))
+
 app.get("/", (req, res) => {
     const products = [
         {
