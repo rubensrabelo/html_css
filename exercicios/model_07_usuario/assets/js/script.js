@@ -1,19 +1,29 @@
+// Carregar os dados do LocalStore após fechar a aba
+
 document.addEventListener("DOMContentLoaded", () => {
     const form =  document.querySelector(".form");
     form.addEventListener("submit", (e) => {
         e.preventDefault();
+        
         new Init();
     });
 });
 
+const users = [];
+
 class Init {
-    constructor(e) {
+    constructor() {
         const name = document.querySelector(".name").value;
         const sex = document.querySelector(".sex").value;
         const country = document.querySelector(".country").value;
+        
+        let sexCompleted;
+
+        if(sex === "M") sexCompleted = "Masculine"
+        else sexCompleted = "Female" 
 
         this.saveUser(
-            this.name, this.sex, this.country
+            name, sexCompleted, country
         );
     }
 
@@ -28,10 +38,29 @@ class Init {
     // Vou salvar no LocalStore
 
     saveUser(name, sex, country) {
-        const user = this.transformData(
+        users.push(this.transformData(
             name, sex, country
-        );
+        ));
 
-        return JSON.stringify(user);
+        localStorage.setItem("users", JSON.stringify (users));
+
+        this.exibirNaTela(name, sex, country);
+    }
+
+    static exibirNaTela(name, sex, country) {
+        const div = document.querySelector(".result");
+
+        const h3 = document.createElement("h3");
+        h3.innerHTML = `Name: ${name}`;
+
+        div.appendChild(h3);
+
+        const liSex = document.createElement("li");
+        liSex.innerHTML = `Sex: ${sex}`;
+        div.appendChild(liSex);
+
+        const liCountry = document.createElement("li");
+        liCountry.innerHTML = `Country: ${country}`;
+        div.appendChild(liCountry);
     }
 }
