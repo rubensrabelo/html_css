@@ -1,7 +1,17 @@
-// Carregar os dados do LocalStore após fechar a aba
-
 document.addEventListener("DOMContentLoaded", () => {
     const form =  document.querySelector(".form");
+
+    const LocalStore = localStorage.getItem("users");
+
+    console.log(LocalStore);
+
+    if(LocalStore) {
+        const vetorObjetos = JSON.parse(LocalStore);
+        vetorObjetos.forEach(obj => {
+            Init.exibirNaTela(obj.name, obj.sex, obj.country);
+        });
+    }
+
     form.addEventListener("submit", (e) => {
         e.preventDefault();
         
@@ -44,7 +54,7 @@ class Init {
 
         localStorage.setItem("users", JSON.stringify (users));
 
-        this.exibirNaTela(name, sex, country);
+        Init.exibirNaTela(name, sex, country);
     }
 
     static exibirNaTela(name, sex, country) {
