@@ -26,7 +26,25 @@ class Student {
     showOnScreen(name, totalNotes, average) {
         const table = document.querySelector(".table-data-student");
 
-        // Vou ter mandar o nome, as notas (array) e a média
+        const tr = document.createElement("tr");
+
+        const tdName = document.createElement("td");
+        tdName.innerText = name;
+
+        tr.appendChild(tdName);
+
+        for(let note of totalNotes ) {
+            let tdNote = document.createElement("td");
+            tdNote.innerText = note;
+            tr.appendChild(tdNote);
+        }
+
+        const tdAverage = document.createElement("td");
+        tdAverage.innerText = average;
+
+        tr.appendChild(tdAverage);
+
+        table.appendChild(tr);
 
         this.emptyInput();
     }
