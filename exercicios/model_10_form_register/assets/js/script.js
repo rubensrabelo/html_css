@@ -11,7 +11,7 @@
         console.log(title.value);
         
         if(!(title.value)) {
-            alert("Title is empty! Please, insert a value.");
+            showFeedback("Title is empty! Please, insert a value.");
             title.focus();
         }
     });
@@ -19,23 +19,24 @@
     const txtDescricao = document.querySelector("#txtDescricao");
     const contadorContainer = document.querySelector("#contador");
     const rest = contadorContainer.getElementsByTagName("span")[0];
-    const maxCaractere = txtDescricao.maxlength;
+    const maxCaractere = txtDescricao.maxLength;
     
+    rest.innerText = maxCaractere;
+
     contadorContainer.style.display = "block";
-    
-    txtDescricao.addEventListener("keyup", () => {
-        console.log("keyup");
+
+    txtDescricao.addEventListener("input", function () {
+        let numberLettersInsert = this.value.length;
+        let diffLetters = Number(maxCaractere) - numberLettersInsert;
+
+        rest.innerText = diffLetters;
     });
 
-    txtDescricao.addEventListener("keydown", () => {
-        console.log("keydown");
-    });
+    btn.disabled = true;
 
-    txtDescricao.addEventListener("keypress", () => {
-        console.log("keypress");
-    });
+    const chkAccept = document.querySelector("#chkAccept");
 
-    txtDescricao.addEventListener("input", () => {
-        console.log("input");
+    chkAccept.addEventListener("change", function() {
+        btn.disabled = !this.checked;
     });
 })();
