@@ -11,10 +11,17 @@
         console.log(title.value);
         
         if(!(title.value)) {
-            showFeedback("Title is empty! Please, insert a value.");
+            showErrorMessage("Title is empty! Please, insert a value.");
             title.focus();
         }
     });
+
+    const feedbackMessage = document.querySelector("#feedbackMessage");
+
+    function showErrorMessage(msg) {
+        feedbackMessage.setAttribute("class", "show");
+        feedbackMessage.innerText = msg;
+    }
 
     const txtDescricao = document.querySelector("#txtDescricao");
     const contadorContainer = document.querySelector("#contador");
