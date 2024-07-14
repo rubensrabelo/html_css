@@ -5,6 +5,11 @@ const FileStore = require("session-file-store")(session);
 const flash = require("express-flash");
 
 const conn = require("./db/conn")
+const Tought = require("./models/Tought");
+const User = require("./models/User");
+
+const toughtRoutes = require("./router/toughtRoutes");
+const ToughtController = require("./controllers/ToughtController");
 
 const app = express();
 
@@ -48,7 +53,12 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use("/toughts", toughtRoutes);
+
+app.get("/", ToughtController.showToughts);
+
 conn
+//.sync({force: true})
 .sync()
 .then(() => app.listen(3000))
 .catch((err) => console.log(err));
