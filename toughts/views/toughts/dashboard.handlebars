@@ -7,8 +7,13 @@
     <h3>Toughts</h3>
 
     <ul>
-        {{#each toughts}}
-            <li>{{this.title}}</li>
-        {{/each}}
+        <li><span class="label">{{this.title}}</span></li>
+        <span class="actions">
+            <a href="/toughts/remove" class="btn">Editar</a>
+            <form action="">
+                <input type="hidden" name="id" id="{{this.id}}">
+                <input type="submit" name="Delete" class="btn">
+            </form>
+        </span>
     </ul>
 </div>
