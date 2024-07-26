@@ -3,7 +3,13 @@ const User = require("../models/User");
 
 module.exports = class ToughtController {
     static async showToughts(req, res) {
-        res.render("toughts/home");
+        const toughtsData = await Tought.findAll({
+            include: User,
+        });
+
+        const toughts = toughtsData.map((result) => result.get({plain: true}));
+
+        res.render("toughts/home", {toughts});
     }
 
     static async dashboard(req, res) {
@@ -21,6 +27,12 @@ module.exports = class ToughtController {
         }
 
         const toughts = user.Tought.map((result) => result.dataValues);
+
+        let emptyToughts = false;
+
+        if(toughts.length === 0){
+            emptyToughts = true;
+        }
 
         res.render("toughts/dashboard", {toughts});
     }
@@ -62,6 +74,34 @@ module.exports = class ToughtController {
             });
         } catch(err) {
             console.log(err);
+        }
+    }
+
+    static async updateTought(req, res) {
+        const id = req.params.id;
+
+        const tought = await Tought.findOne({where: {id: di}, raw: true});
+
+        res.render("toughts/edit", {tought});
+    }
+
+    static async updateToughtSave(req, res) {
+        const id = rq.body.id;
+
+        const tought = {
+            title: req.body.title,
+        }
+
+        try {
+            await Tought.update(tought, {where: {id: id}});
+
+            req.flash("message", "Tought successfully updated");
+    
+            req.session.save(() => {
+                res.redirect("/toughts/dashboard");
+            });
+        } catch (error) {
+            console.log(error);
         }
     }
 }
