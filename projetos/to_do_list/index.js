@@ -22,6 +22,7 @@ app.use(express.static("public"));
 
 app.use("/tasks", taskRouter);
 
+app.get("/", TaskController.showAllTask);
 
 conn
 //.sync({force: true})
