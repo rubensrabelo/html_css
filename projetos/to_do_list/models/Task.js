@@ -10,6 +10,7 @@ const Task = conn.define("Task", {
     },
     status: {
         type: DataTypes.BOOLEAN,
+        allowNull: false,
     }
 });
 

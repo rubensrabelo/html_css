@@ -16,7 +16,7 @@ module.exports = class TaskController {
    static async createTaskPost(req, res) {
     const task = {
         title: req.body.title,
-        check: 0
+        status: false
     };
 
     await Task.create(task);
@@ -29,7 +29,7 @@ module.exports = class TaskController {
 
     const task = await Task.findOne({where: {id: id}, raw: true});
 
-    res.render("task/edit", task);
+    res.render("tasks/edit", task);
    }
 
    static async editTaskPost(req, res) {
@@ -37,7 +37,7 @@ module.exports = class TaskController {
 
     const task = {
         title: req.body.title,
-        check: req.body.check
+        status: req.body.status
     }
 
     await Task.update(task, {where: {id: id}});
