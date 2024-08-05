@@ -16,9 +16,9 @@
 
         <a href="/tasks/edit/{{this.id}}">Edit</a>
 
-        <form action="/tasks/" method="POST">
+        <form action="/tasks/remove" method="POST">
             <input type="hidden" name="id" id="id" value="{{this.id}}">
-            <button type="submit">Delete</button>
+            <button type="submit">Remove</button>
         </form>
     {{/each}}
 </section>

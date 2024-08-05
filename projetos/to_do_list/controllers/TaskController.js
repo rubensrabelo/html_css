@@ -34,7 +34,7 @@ module.exports = class TaskController {
    }
 
    static async editTaskPost(req, res) {
-    const id = req.params.id;
+    const id = req.body.id;
 
     const task = {
         title: req.body.title,
@@ -43,6 +43,14 @@ module.exports = class TaskController {
 
     await Task.update(task, {where: {id: id}});
 
-    res.redirect("/task");
+    res.redirect("/tasks");
    }
+
+   static async removeTask(req, res) {
+    const id = req.body.id;
+
+    await Task.destroy({where: {id: id}});
+
+    res.redirect("/tasks");
+   } 
 }

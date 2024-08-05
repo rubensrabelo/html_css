@@ -3,7 +3,7 @@
 </section>
 
 <section class="container-form">
-    <form action="/task/edit" method="POST" class="form">
+    <form action="/tasks/edit" method="POST" class="form">
         <section class="container-form-items">
             <input type="hidden" name="id" value="{{task.id}}">
             
@@ -11,7 +11,7 @@
                 <label for="title">Title: </label>
                 <input type="text" name="title" id="title" value="{{task.title}}">
                 
-                <label for="status">Title: </label>
+                <label for="status">Status: </label>
                 <input type="text" name="status" id="status" value="{{task.status}}">
             </section>
             
