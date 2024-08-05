@@ -3,8 +3,7 @@ const Task = require("../models/Task");
 
 module.exports = class TaskController {
    static async showAllTask(req, res) {
-    
-    const tasks = await Task.findAll();
+    const tasks = await Task.findAll({raw: true});
 
     res.render("task/home", {tasks});
    }
@@ -29,7 +28,9 @@ module.exports = class TaskController {
 
     const task = await Task.findOne({where: {id: id}, raw: true});
 
-    res.render("tasks/edit", task);
+    console.log(task)
+
+    res.render("task/edit", {task});
    }
 
    static async editTaskPost(req, res) {

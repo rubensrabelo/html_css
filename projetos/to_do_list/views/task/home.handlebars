@@ -3,6 +3,22 @@
 </section>
 
 <section class="container-items-tasks">
-    {{#with tasks}}
-    {{/with}}
+    {{#each tasks}}
+        <section class="container-items-tasks-main-title">
+            <h2>{{this.title}}</h2>
+        </section>
+
+        <section class="container-items-tasks-status">
+            <ul>
+                <li>{{this.status}}</li>
+            </ul>
+        </section>
+
+        <a href="/tasks/edit/{{this.id}}">Edit</a>
+
+        <form action="/tasks/" method="POST">
+            <input type="hidden" name="id" id="id" value="{{this.id}}">
+            <button type="submit">Delete</button>
+        </form>
+    {{/each}}
 </section>
