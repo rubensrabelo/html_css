@@ -28,8 +28,6 @@ module.exports = class TaskController {
 
     const task = await Task.findOne({where: {id: id}, raw: true});
 
-    console.log(task)
-
     res.render("task/edit", {task});
    }
 

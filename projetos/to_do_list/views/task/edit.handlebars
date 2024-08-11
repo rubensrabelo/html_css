@@ -4,22 +4,20 @@
 
 <section class="container-form">
     <form action="/tasks/edit" method="POST" class="form">
-        <section class="container-form-items">
-            <input type="hidden" name="id" value="{{task.id}}">
+        <input type="hidden" name="id" value="{{task.id}}">
+        
+        <section class="container-form-input">
+            <label for="title">Title: </label>
+            <input type="text" name="title" id="title" value="{{task.title}}">
             
-            <section class="container-form-input">
-                <label for="title">Title: </label>
-                <input type="text" name="title" id="title" value="{{task.title}}">
-                
-                <label for="status">Status: </label>
-                <input type="text" name="status" id="status" value="{{task.status}}">
-            </section>
-            
-            {{!-- O valor não está sendo enviado para o banco de dados --}}
+            <label for="status">Status: </label>
+            <input type="text" name="status" id="status" value="{{task.status}}">
+        </section>
+        
+        {{!-- O valor não está sendo enviado para o banco de dados --}}
 
-            <section class="container-form-btn">
-                <input type="submit" class="btn" value="Edit">
-            </section>
+        <section class="container-form-btn">
+            <input type="submit" class="btn" value="Edit">
         </section>
     </form>
 </section>
