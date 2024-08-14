@@ -21,4 +21,25 @@ module.exports = class NoteController {
 
         res.redirect("/notes");
     }
+
+    static async editNote(req, res) {
+        const id = req.params.id;
+
+        const note = await Note.findOne({where: {id}, raw: true});
+
+        res.render("notes/edit", {note});
+    }
+
+    static async editNotePost(req, res) {
+        const id = req.body.id;
+
+        const note = {
+            title: req.body.title,
+            description: req.body.description
+        };
+
+        await Note.update(note, {where: {id}});
+
+        res.redirect("/notes");
+    }
 }
