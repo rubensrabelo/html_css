@@ -42,4 +42,12 @@ module.exports = class NoteController {
 
         res.redirect("/notes");
     }
+
+    static async deleteNote(req, res) {
+        const id = req.body.id;
+
+        await Note.destroy({where: {id}});
+
+        res.redirect("/notes");
+    }
 }
