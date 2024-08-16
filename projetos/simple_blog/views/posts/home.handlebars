@@ -1,0 +1,19 @@
+<h1>Welcome</h1>
+
+<div class="container-posts">
+    {{#each posts}}
+    
+    <ul>
+        <li>{{this.title}}</li>
+        <li>{{this.comment}}</li>
+    </ul>
+    
+    <a href="/posts/edit/{{this.id}}">Edit</a>
+
+    <form action="/posts/delete">
+        <input type="hidden" name="id" value="{{this.id}}">
+        <input type="submit" value="Delete">
+    </form>
+
+    {{/each}}
+</div>

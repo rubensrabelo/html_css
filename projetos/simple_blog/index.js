@@ -19,9 +19,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-// app.use("/posts", postRouter);
-
-// >>>>>>>>>>>>>>>>> FINALIZEI A CONFIGURAÇÃO
+app.use("/posts", postRouter);
 
 conn
 .sync()
