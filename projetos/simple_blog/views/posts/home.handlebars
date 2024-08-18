@@ -10,7 +10,7 @@
     
     <a href="/posts/edit/{{this.id}}">Edit</a>
 
-    <form action="/posts/delete">
+    <form action="/posts/delete" method="post">
         <input type="hidden" name="id" value="{{this.id}}">
         <input type="submit" value="Delete">
     </form>
