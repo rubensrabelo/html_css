@@ -31,6 +31,12 @@ class Product {
 
         return product;
     }
+
+    static async removeById(id) {
+        await conn.db().collection("products").deleteOne({_id: ObjectId(id)});
+
+        return;
+    }
 }
 
 module.exports = Product;
