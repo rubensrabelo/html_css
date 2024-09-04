@@ -1,4 +1,6 @@
 import FirstComponent from "./components/FirstComponent"
+import TemplateExpression from "./components/TemplateExpression"
+import Events from "./components/Events"
 
 import './App.css'
 
@@ -10,6 +12,8 @@ function App() {
       <p>Welcome to my first program in React!</p>
 
       <FirstComponent />
+      <TemplateExpression />
+      <Events />
     </>
   )
 }
