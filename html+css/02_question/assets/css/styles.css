@@ -1,0 +1,16 @@
+.container {
+    width: 50%;
+    margin: 0 auto;
+}
+
+h1, h2 {
+    padding: 0.15em;
+    background-color: blue;
+    color: white;
+    border-bottom: 0.1em solid black;
+    border-radius: 0.25em;
+}
+
+p {
+    text-align: center;
+}
