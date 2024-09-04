@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 const createUserToken = require("../helpers/create-user-token");
 const getToken = require("../helpers/get-token");
+const getUserByToken = require("../helpers/get-user-by-token");
 
 module.exports = class UserController {
     
@@ -125,5 +126,58 @@ module.exports = class UserController {
         }
 
         res.status(200).json({ user });
+    }
+
+    static async editUser(req, res) {
+        const id = req.params.id;
+
+        const token = getToken(req);
+
+        const user = await getUserByToken(token);
+
+        const {name, email, phone, password, confirmpassword} = req.body;
+
+        let image = "";
+
+        if(!name) {
+            res.status(422).json({ message: "Enter name!" });
+            return;
+        }
+
+        if(!email) {
+            res.status(422).json({ message: "Enter email! "});
+            return;
+        }
+
+        const userExists = await User.findOne({email: email});
+
+        if(user.email !== email && userExists) {
+            res.status(422).json({ message: "User not found" });
+            return;
+        }
+
+        user.email = email;
+
+        if(!phone) {
+            res.status(422).json({ message: "Enter phone! "});
+            return;
+        }
+
+        if(!password) {
+            res.status(422).json({ message: "Enter password! "});
+            return;
+        }
+
+        if(!confirmpasswordpassword) {
+            res.status(422).json({ message: "Enter confirm password! "});
+            return;
+        }
+
+        if(password !== confirmpassword) {
+            res.status(422).json({ message: "Both passwords must be the same!" });
+            return;
+        }
+
+        
     }
 }
