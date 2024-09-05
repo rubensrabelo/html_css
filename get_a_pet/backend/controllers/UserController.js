@@ -139,6 +139,10 @@ module.exports = class UserController {
 
         let image = "";
 
+        if(req.file) {
+            user.image = req.file.filename;
+        }
+
         if(!name) {
             res.status(422).json({ message: "Enter name!" });
             return;
@@ -163,21 +167,28 @@ module.exports = class UserController {
             return;
         }
 
-        if(!password) {
-            res.status(422).json({ message: "Enter password! "});
-            return;
-        }
-
-        if(!confirmpasswordpassword) {
-            res.status(422).json({ message: "Enter confirm password! "});
-            return;
-        }
+        user.phone = phone
 
         if(password !== confirmpassword) {
             res.status(422).json({ message: "Both passwords must be the same!" });
             return;
+        } else if(password === confirmpassword && password !== null) {
+            const salt = await bcrypt.genSalt(12);
+            const passwordHash = await bcrypt.hash(password, salt);
+
+            user.password = passwordHash;
         }
 
-        
+        try {
+            await User.findOneAndUpdate(
+                {_id: user._id},
+                {$set: user},
+                {new: true}
+            );
+
+            res.status(200).json({message: "User updated successfully!"});
+        } catch (error) {
+            res.status(500).json({ message: error });
+        }
     }
 }
