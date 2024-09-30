@@ -1,0 +1,33 @@
+body {
+    width: 62.5em;
+    height: 20em;
+    margin: 0 auto;
+    color: #303435;
+}
+
+h1 {
+    padding: 0.15em;
+    background-color: blue;
+    color: white;
+    text-align: center;
+}
+
+h1 + p {
+    text-align: center;
+}
+
+h2 {
+    padding: 0.15em;
+    background-color: gray;
+    color: white;
+    border-bottom: 0.15em solid black;
+}
+
+.color-blue {
+    color: blue;
+    font-weight: bold;
+}
+
+.bolder {
+    font-weight: bolder;
+}
