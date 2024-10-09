@@ -15,12 +15,12 @@ body {
 }
 
 img {
-    width: 6.5em;
+    width: 5em;
     height: auto;
 }
 
 .list-item--action img {
-    width: 1.25em;
+    width: 1.15em;
     height: auto;
 }
 
@@ -32,4 +32,55 @@ img {
     overflow-y: auto;
     border-radius: 0.5em;
     box-shadow: 0 0.125em 0.375em rgba(0, 0, 0, 0.5);
+}
+
+.list {
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+}
+
+.list-item {
+    display: flex;
+    border-bottom: 0.0625em solid #eee;
+    padding: 1em; 
+}
+
+.list-item--img {
+    border-radius: 50%;
+}
+
+.list-item--content {
+    padding: 0 1.25em;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.list-item--name {
+    font-size: 1.5em;
+    color: #385555;
+    margin: 0;
+}
+
+.list-item--email {
+    margin-top: 0.3125em 0 0;
+    color: #aaa;
+}
+
+.list-item:hover {
+    background-color: #e8e8e8;
+}
+
+.list-item--action {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+.list-item--action a {
+    opacity: 0.3;
+}
+
+.list-item--action a:hover {
+    opacity: 1;
 }
