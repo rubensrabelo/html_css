@@ -1,0 +1,35 @@
+body {
+    background-color: aqua;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.main-title {
+    color: #385555;
+}
+
+img {
+    width: 6.5em;
+    height: auto;
+}
+
+.list-item--action img {
+    width: 1.25em;
+    height: auto;
+}
+
+.list-wrapper {
+    background-color: #fff;
+    width: 90%;
+    max-width: 31.25em;
+    max-height: 25em;
+    overflow-y: auto;
+    border-radius: 0.5em;
+    box-shadow: 0 0.125em 0.375em rgba(0, 0, 0, 0.5);
+}
