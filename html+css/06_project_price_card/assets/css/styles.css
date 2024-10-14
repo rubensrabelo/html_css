@@ -11,7 +11,7 @@ body {
     font-size: 3.875em;
     text-transform: uppercase;
     text-align: center;
-    margin: 2.875em 0;
+    /* margin: 2.875em 0; */
 }
 
 .header {
@@ -26,4 +26,79 @@ body {
     font-size: 2.25em;
     text-transform: uppercase;
     margin-left: 1em;
+    letter-spacing: 0.125em;
+}
+
+.header--nav ul {
+    display: flex;
+    list-style-type: none;
+    font-size: 1.125em;
+    gap: 1em;
+}
+
+.header--nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.875em;
+    border-radius: 0.5em;
+}
+
+a.header--nav--active {
+    background-color: #cbe300;
+    color: #0c1014;
+    pointer-events: none;
+}
+
+.header--nav a:hover {
+    text-decoration: underline;
+}
+
+.pricing {
+    display: flex;
+    gap: 1em;
+}
+
+.pricing-plan {
+    flex: 1;
+    background-color: #1f262c;
+    padding: 2em;
+    border-radius: 0.5em;
+    box-shadow: 0 0.5em 0.75em -0.375em #000;
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-plan--title {
+    text-transform: uppercase;
+    border-bottom: 0.125em solid #cbe300;
+    margin-top: 0;
+    padding-bottom: 0.625em;
+    letter-spacing: 0.125em;
+}
+
+.pricing-plan p {
+    margin-top: 0;
+}
+
+.pricing-plan--price {
+    font-size: 1.5em;
+}
+
+.pricing-plan--feature {
+    margin: 0 0 2.1875em;
+    color: #b5b5b5;
+    padding-left: 1em;
+    line-height: 1.8;
+}
+
+.pricing-plan--cta {
+    text-decoration: none;
+    color: #fff;
+    background-color: #cbe300;
+    text-transform: uppercase;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 1em 0.625em;
+    text-align: center;
+    border-radius: 0.5em;
 }
