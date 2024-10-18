@@ -1,0 +1,58 @@
+:root {
+    --larger-default-paddin: 6.5em;
+    --medium-default-padding: 4em;
+}
+
+body {
+    font-family: "Roboto", tahoma, arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#main {
+    width: 64em;
+    margin: 1.25em auto;
+}
+
+h1, h2 {
+    font-family: 'Viaoda Libre', cursive;
+    font-weight: normal;
+}
+
+.header-top {
+    background-color: #162028;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logotipo {
+    margin: .5em 0 .5em 8.4375;
+    color: #fff;
+}
+
+.header-nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+.header-nav li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 1em 0 0;
+    padding: 1em;
+}
+
+.header-nav a {
+    color: red;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: .8em;
+    letter-spacing: .15em;
+    transition: color .3s linear;
+    width: 1em;
+    height: 1em;
+}
+
+.header-nav a:hover {
+    color: #fff;
+}
