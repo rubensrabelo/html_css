@@ -1,5 +1,5 @@
 :root {
-    --larger-default-paddin: 6.5em;
+    --larger-default-padding: 6.5em;
     --medium-default-padding: 4em;
 }
 
@@ -26,7 +26,7 @@ h1, h2 {
 }
 
 .logotipo {
-    margin: .5em 0 .5em 8.4375;
+    margin: .5em 0 .5em 8.4375em;
     color: #fff;
 }
 
@@ -43,16 +43,77 @@ h1, h2 {
 }
 
 .header-nav a {
-    color: red;
+    color: #425564;
     text-decoration: none;
     text-transform: uppercase;
     font-size: .8em;
     letter-spacing: .15em;
     transition: color .3s linear;
-    width: 1em;
-    height: 1em;
 }
 
 .header-nav a:hover {
     color: #fff;
+}
+
+.portfolio {
+    padding: var(--medium-default-padding) var(--larger-default-padding);
+    text-align: center;
+}
+
+.portfolio h1 {
+    font-size: 2.25em;
+    color: #252525;
+}
+
+.portfolio p {
+    font-size: 1em;
+    line-height: 2;
+    color: #555;
+}
+
+.gallery {
+    color: #555;
+    padding: 0 var(--larger-default-padding) var(--medium-default-padding);
+    display: flex;
+    justify-content: space-between;
+}
+
+.gallery-card {
+    text-align: center;
+}
+
+.gallery-title {
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.about {
+    background-color: #003d52;
+    padding: var(--larger-default-padding);
+    color: #fff;
+    background-image: url(../img/bg_detalhe.png);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+}
+
+.about h2 {
+    text-transform: uppercase;
+    font-size: 3em;
+    font-weight: normal;
+}
+
+.about p {
+    line-height: 1.5;
+    width: 70%;
+}
+
+.footer {
+    background-color: #0b171f;
+    padding: 1.8em;
+    font-size: .75;
+    color: #6f8597;
+    letter-spacing: .3em;
+    text-align: center;
 }
